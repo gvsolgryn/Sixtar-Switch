@@ -6,7 +6,8 @@
         "binary_info.h": "c",
         "version.h": "c",
         "tusb.h": "c",
-        "usb_descriptors.h": "c"
+        "usb_descriptors.h": "c",
+        "hid_device.h": "c"
     },
     "cmake.sourceDirectory": "/home/gvsolgryn/Desktop/Sixtar-Switch/Sixtar-Switch_RP2040/src"
 }
