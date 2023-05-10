@@ -4,7 +4,9 @@
         "pico.h": "c",
         "config.h": "c",
         "binary_info.h": "c",
-        "version.h": "c"
+        "version.h": "c",
+        "tusb.h": "c",
+        "usb_descriptors.h": "c"
     },
-    "cmake.sourceDirectory": "/home/gvsolgryn/Desktop/Sixtar-Switch/Sixtar-Switch_RP2040/source"
+    "cmake.sourceDirectory": "/home/gvsolgryn/Desktop/Sixtar-Switch/Sixtar-Switch_RP2040/src"
 }
