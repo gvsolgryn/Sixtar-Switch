@@ -33,10 +33,9 @@
  *   [MSB]         HID | MSC | CDC          [LSB]
  */
 #define _PID_MAP(itf, n)  ( (CFG_TUD_##itf) << (n) )
-#define USB_PID           (0x4000 | _PID_MAP(CDC, 0) | _PID_MAP(MSC, 1) | _PID_MAP(HID, 2) | \
+#define USB_PID           (0x0092 | _PID_MAP(CDC, 0) | _PID_MAP(MSC, 1) | _PID_MAP(HID, 2) | \
                            _PID_MAP(MIDI, 3) | _PID_MAP(VENDOR, 4) )
-
-#define USB_VID   0xCafe
+#define USB_VID   0x0f0d
 #define USB_BCD   0x0200
 
 //--------------------------------------------------------------------+
@@ -47,6 +46,7 @@ tusb_desc_device_t const desc_device =
     .bLength            = sizeof(tusb_desc_device_t),
     .bDescriptorType    = TUSB_DESC_DEVICE,
     .bcdUSB             = USB_BCD,
+
     .bDeviceClass       = 0x00,
     .bDeviceSubClass    = 0x00,
     .bDeviceProtocol    = 0x00,
@@ -76,10 +76,10 @@ uint8_t const * tud_descriptor_device_cb(void)
 
 uint8_t const desc_hid_report[] =
 {
-  TUD_HID_REPORT_DESC_KEYBOARD( HID_REPORT_ID(REPORT_ID_KEYBOARD         )),
+  /*TUD_HID_REPORT_DESC_KEYBOARD( HID_REPORT_ID(REPORT_ID_KEYBOARD         )),
   TUD_HID_REPORT_DESC_MOUSE   ( HID_REPORT_ID(REPORT_ID_MOUSE            )),
-  TUD_HID_REPORT_DESC_CONSUMER( HID_REPORT_ID(REPORT_ID_CONSUMER_CONTROL )),
-  TUD_HID_REPORT_DESC_GAMEPAD ( HID_REPORT_ID(REPORT_ID_GAMEPAD          ))
+  TUD_HID_REPORT_DESC_CONSUMER( HID_REPORT_ID(REPORT_ID_CONSUMER_CONTROL )),*/
+  TUD_HID_REPORT_DESC_GAMEPAD ()
 };
 
 // Invoked when received GET HID REPORT DESCRIPTOR
@@ -181,8 +181,8 @@ uint8_t const * tud_descriptor_configuration_cb(uint8_t index)
 char const* string_desc_arr [] =
 {
   (const char[]) { 0x09, 0x04 }, // 0: is supported language is English (0x0409)
-  "TinyUSB",                     // 1: Manufacturer
-  "TinyUSB Device",              // 2: Product
+  "GVSolgryn",                   // 1: Manufacturer
+  "Sixtar Gate Controller",      // 2: Product
   "123456",                      // 3: Serials, should use chip ID
 };
 
