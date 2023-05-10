@@ -9,12 +9,17 @@ set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
 
-add_executable(Sixtar_Controller
-main.c
+add_executable(Sixtar_Controller)
+
+target_sources(Sixtar_Controller PUBLIC
+    ${CMAKE_CURRENT_LIST_DIR}/main.c
+    ${CMAKE_CURRENT_LIST_DIR}/usb_descriptors.c
 )
 
-pico_enable_stdio_usb(Sixtar_Controller 1)
+target_include_directories(Sixtar_Controller PUBLIC
+    ${CMAKE_CURRENT_LIST_DIR}
+)
 
 pico_add_extra_outputs(Sixtar_Controller)
 
-target_link_libraries(Sixtar_Controller pico_stdlib)
+target_link_libraries(Sixtar_Controller PUBLIC pico_stdlib tinyusb_device tinyusb_board)
