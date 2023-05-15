@@ -1,12 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "hardware/gpio.h"
-
-#include "bsp/board.h"
-#include "tusb.h"
-#include "usb_descriptors.h"
+#include "include/main.h"
 
 //--------------------------------------------------------------------+
 // MACRO CONSTANT TYPEDEF PROTYPES
@@ -19,84 +11,51 @@
 // USB HID
 //--------------------------------------------------------------------+
 
-enum btnEnum {
-	BUTTON_1,
-	BUTTON_2,
-	BUTTON_3,
-	BUTTON_4,
-	BUTTON_COUNT
-};
-
-typedef struct _BUTTON_STATUS_ {
-	uint8_t HAT_UP;
-	uint8_t HAT_DOWN;
-	uint8_t HAT_LEFT;
-	uint8_t HAT_RIGHT;
-} button_state;
-
-static void send_hid_report(uint8_t report_id, button_state *btn_state) {
+static void send_hid_report(uint8_t report_id, uint32_t btn) {
 	// skip if hid is not ready yet
 	if (!tud_hid_ready())
 		return;
 
-	if(report_id == REPORT_ID_GAMEPAD) {
-		hid_gamepad_report_t report = {
-			.x			= 0,
-			.y			= 0,
-			.z			= 0,
-			.rz			= 0,
-			.ry			= 0,
-			.rz			= 0,
-			.hat		= 0,
-			.buttons	= 0
-		};
+	hid_gamepad_report_t report = {
+		.x			= 0,
+		.y			= 0,
+		.z			= 0,
+		.rx			= 0,
+		.ry			= 0,
+		.rz			= 0,
+		.hat		= 0,
+		.buttons	= 0
+	};
 
-		// TEST Code
+	switch(btn) {
+		case 0: {
+			report.hat = 0;
+			report.buttons = 0;
 
-		if(btn_state->HAT_UP) {
-			report.hat 		= GAMEPAD_HAT_UP;
-
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
-		}
-		else {
-			report.hat 		= GAMEPAD_HAT_CENTERED;
-
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
+			break;
 		}
 
-		if(btn_state->HAT_DOWN) {
-			report.hat 		= GAMEPAD_HAT_DOWN;
+		case 1: {
+			report.hat = GAMEPAD_HAT_UP;
 
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
-		}
-		else {
-			report.hat 		= GAMEPAD_HAT_CENTERED;
-
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
+			break;
 		}
 
-		if(btn_state->HAT_LEFT) {
-			report.hat 		= GAMEPAD_HAT_LEFT;
+		default : {
+			report.x = 0;
+			report.y = 0;
+			report.z = 0;
+			report.rx = 0;
+			report.ry = 0;
+			report.rz = 0;
+			report.hat = 0;
+			report.buttons = 0;
 
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
-		}
-		else {
-			report.hat 		= GAMEPAD_HAT_CENTERED;
-
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
-		}
-
-		if(btn_state->HAT_RIGHT) {
-			report.hat 		= GAMEPAD_HAT_RIGHT;
-
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
-		}
-		else {
-			report.hat 		= GAMEPAD_HAT_CENTERED;
-
-			tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
+			break;
 		}
 	}
+
+	tud_hid_report(report_id, &report, sizeof(report));
 }
 
 // Every 1ms, we will sent 1 report for each HID profile (keyboard, mouse etc ..)
@@ -121,7 +80,7 @@ static void update_input() {
 
 	board_led_write((bool)btn);
 
-	send_hid_report(REPORT_ID_GAMEPAD, btn_state);
+	send_hid_report(REPORT_ID_GAMEPAD, btn);
 
 	return;
 }
