@@ -1,8 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
 #include "SwitchControlLibrary.h"
 
-#if defined(_USING_HID)
-
-static const uint8_t _hidReportDescriptor[] PROGMEM = {
+static const uint8_t _hidReportDescriptor[] = {
     0x05, 0x01,       //   USAGE_PAGE (Generic Desktop)
     0x09, 0x05,       //   USAGE (Game Pad)
     0xa1, 0x01,       //   COLLECTION (Application)
@@ -178,5 +179,3 @@ SwitchControlLibrary_ &SwitchControlLibrary()
     static SwitchControlLibrary_ obj;
     return obj;
 }
-
-#endif

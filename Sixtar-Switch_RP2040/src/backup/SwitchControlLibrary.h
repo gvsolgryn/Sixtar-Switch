@@ -1,9 +1,4 @@
-#pragma once
-
-#include <ArduinoSTL.h>
 #include <list>
-
-#include "CustomHID.h"
 
 struct Button
 {
