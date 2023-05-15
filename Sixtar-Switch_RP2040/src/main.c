@@ -11,7 +11,7 @@
 // USB HID
 //--------------------------------------------------------------------+
 
-static void send_hid_report(uint8_t report_id, uint32_t btn) {
+static void send_hid_report(uint8_t report_id, uint32_t btn, button_state *btn_state) {
 	// skip if hid is not ready yet
 	if (!tud_hid_ready())
 		return;
@@ -80,7 +80,7 @@ static void update_input() {
 
 	board_led_write((bool)btn);
 
-	send_hid_report(REPORT_ID_GAMEPAD, btn);
+	send_hid_report(REPORT_ID_GAMEPAD, btn, btn_state);
 
 	return;
 }
@@ -91,7 +91,7 @@ void init() {
 
 		gpio_set_dir(i, GPIO_IN);
 
-		gpio_pull_down(i);
+		// gpio_pull_down(i);
 	}
 
 	return;
@@ -100,6 +100,7 @@ void init() {
 /*------------- MAIN -------------*/
 int main(void)
 {
+	init();
 	board_init();
 	tusb_init();
 
