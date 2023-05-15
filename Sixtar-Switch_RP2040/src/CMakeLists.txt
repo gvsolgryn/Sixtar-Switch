@@ -13,11 +13,12 @@ add_executable(Sixtar_Controller)
 
 target_sources(Sixtar_Controller PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/main.c
-    ${CMAKE_CURRENT_LIST_DIR}/usb_descriptors.c
+    ${CMAKE_CURRENT_LIST_DIR}/include/usb_descriptors.c
 )
 
 target_include_directories(Sixtar_Controller PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}
+    ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
 pico_add_extra_outputs(Sixtar_Controller)
