@@ -9,18 +9,18 @@
 #include "usb_descriptors.h"
 
 enum btnEnum {
-	BUTTON_1,
-	BUTTON_2,
-	BUTTON_3,
-	BUTTON_4,
-	BUTTON_COUNT
+    BUTTON_1,
+    BUTTON_2,
+    BUTTON_3,
+    BUTTON_4,
+    BUTTON_COUNT
 };
 
 typedef struct {
-	uint8_t HAT_UP;
-	uint8_t HAT_DOWN;
-	uint8_t HAT_LEFT;
-	uint8_t HAT_RIGHT;
+    uint8_t HAT_UP;
+    uint8_t HAT_DOWN;
+    uint8_t HAT_LEFT;
+    uint8_t HAT_RIGHT;
 } hat_status;
 
 typedef struct {
