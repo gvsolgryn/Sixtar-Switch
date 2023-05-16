@@ -10,8 +10,22 @@
 //--------------------------------------------------------------------+
 // USB HID
 //--------------------------------------------------------------------+
+button_status btn_stat = {
+	.A = 0,
+	.B = 0,
+	.X = 0,
+	.Y = 0,
+	.CAPTUR = 0,
+	.HOME = 0,
+	.L = 0,
+	.LCLICK = 0,
+	.MINUS = 0,
+	.PLUS = 0,
+	.R = 0,
+	.RCLICK = 0
+};
 
-static void send_hid_report(uint8_t report_id, uint32_t btn, button_state *btn_state) {
+static void send_hid_report(uint8_t report_id, uint32_t btn) {
 	// skip if hid is not ready yet
 	if (!tud_hid_ready())
 		return;
@@ -30,7 +44,6 @@ static void send_hid_report(uint8_t report_id, uint32_t btn, button_state *btn_s
 	switch(btn) {
 		case 0: {
 			report.hat = 0;
-			report.buttons = 0;
 
 			break;
 		}
@@ -55,6 +68,11 @@ static void send_hid_report(uint8_t report_id, uint32_t btn, button_state *btn_s
 		}
 	}
 
+	report.buttons += btn_stat.A == 0 ? GAMEPAD_BUTTON_A : 0x0000;
+	report.buttons += btn_stat.B == 0 ? GAMEPAD_BUTTON_B : 0x0000;
+	report.buttons += btn_stat.X == 0 ? GAMEPAD_BUTTON_X : 0x0000;
+	report.buttons += btn_stat.Y == 0 ? GAMEPAD_BUTTON_Y : 0x0000;
+
 	tud_hid_report(report_id, &report, sizeof(report));
 }
 
@@ -71,16 +89,16 @@ static void update_input() {
 
 	uint32_t const btn = board_button_read();
 
-	button_state *btn_state;
-
-	btn_state->HAT_UP 		= gpio_get_dir(BUTTON_1);
-	btn_state->HAT_DOWN 	= gpio_get_dir(BUTTON_2);
-	btn_state->HAT_LEFT 	= gpio_get_dir(BUTTON_3);
-	btn_state->HAT_RIGHT 	= gpio_get_dir(BUTTON_4);
+	btn_stat.A = gpio_get(BUTTON_1);
+	btn_stat.B = gpio_get(BUTTON_2);
+	btn_stat.X = gpio_get(BUTTON_3);
+	btn_stat.Y = gpio_get(BUTTON_4);
 
 	board_led_write((bool)btn);
 
-	send_hid_report(REPORT_ID_GAMEPAD, btn, btn_state);
+	gpio_get_dir(BUTTON_1) ? board_led_off() : board_led_on();
+
+	send_hid_report(REPORT_ID_GAMEPAD, btn);
 
 	return;
 }
@@ -91,7 +109,7 @@ void init() {
 
 		gpio_set_dir(i, GPIO_IN);
 
-		// gpio_pull_down(i);
+		gpio_pull_up(i);
 	}
 
 	return;
