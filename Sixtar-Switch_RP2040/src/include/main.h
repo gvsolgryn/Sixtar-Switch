@@ -8,6 +8,21 @@
 #include "tusb.h"
 #include "usb_descriptors.h"
 
+#define NS_BUTTON_Y          0x0001 // minus?
+#define NS_BUTTON_B          0x0002 // plus?
+#define NS_BUTTON_A          0x0004 // lclick?
+#define NS_BUTTON_X          0x0008 // rclick?
+#define NS_BUTTON_L          0x0010 // home?
+#define NS_BUTTON_R          0x0020 // capture?
+#define NS_BUTTON_ZL         0x0040
+#define NS_BUTTON_ZR         0x0080
+#define NS_BUTTON_MINUS      0x0100
+#define NS_BUTTON_PLUS       0x0200
+#define NS_BUTTON_LCLICK     0x0400
+#define NS_BUTTON_RCLICK     0x0800
+#define NS_BUTTON_HOME       0x1000
+#define NS_BUTTON_CAPTURE    0x2000
+
 enum {
     PICO_GPIO_1_ON      = 0x00000001,
     PICO_GPIO_2_ON      = 0x00000002,
@@ -38,23 +53,6 @@ enum {
     PICO_GPIO_27_ON     = 0x04000000,
     PICO_GPIO_28_ON     = 0x08000000,
     PICO_GPIO_29_ON     = 0x10000000
-};
-
-enum BUTTON {
-    NS_BUTTON_Y         = 0x0001,
-    NS_BUTTON_B         = 0x0002,
-    NS_BUTTON_A         = 0x0004,
-    NS_BUTTON_X         = 0x0008,
-    NS_BUTTON_L         = 0x0010,
-    NS_BUTTON_R         = 0x0020,
-    NS_BUTTON_ZL        = 0x0040,
-    NS_BUTTON_ZR        = 0x0080,
-    NS_BUTTON_MINUS     = 0x0100,
-    NS_BUTTON_PLUS      = 0x0200,
-    NS_BUTTON_LCLICK    = 0x0400,
-    NS_BUTTON_RCLICK    = 0x0800,
-    NS_BUTTON_HOME      = 0x1000,
-    NS_BUTTON_CAPTURE   = 0x2000
 };
 
 enum HAT {
@@ -103,6 +101,10 @@ enum {
     GPIO_8,
     GPIO_9,
     GPIO_10,
+    GPIO_11,
+    GPIO_12,
+    GPIO_13,
+    GPIO_14,
     BUTTON_COUNT
 };
 

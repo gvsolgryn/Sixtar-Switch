@@ -29,6 +29,7 @@ static void send_hid_report(uint8_t report_id, uint32_t btn) {
     switch(btn) {
         case 0: {
             report.hat = 0;
+            ns_report.Button = 0;
 
             break;
         }
@@ -36,26 +37,38 @@ static void send_hid_report(uint8_t report_id, uint32_t btn) {
         case 1: {
             report.hat = GAMEPAD_HAT_UP;
 
+            ns_report.Button |= NS_BUTTON_L;
+            ns_report.Button |= NS_BUTTON_R;
+
             break;
         }
 
         default: {
+            memset(&ns_report, 0x00, sizeof(USB_JoystickReport_Input_t));
             memset(&report, 0x00, sizeof(hid_gamepad_report_t));
-			memset(&ns_report, 0x00, sizeof(USB_JoystickReport_Input_t));
 
             break;
         }
     }
 
-    ns_report.Button += btn_stat.Y == 0 ? NS_BUTTON_Y : 0x0000;
-    ns_report.Button += btn_stat.B == 0 ? NS_BUTTON_B : 0x0000;
-    ns_report.Button += btn_stat.A == 0 ? NS_BUTTON_A : 0x0000;
-    ns_report.Button += btn_stat.X == 0 ? NS_BUTTON_X : 0x0000;
-    ns_report.Button += btn_stat.L == 0 ? NS_BUTTON_L : 0x0000;
-    ns_report.Button += btn_stat.R == 0 ? NS_BUTTON_R : 0x0000;
+    ns_report.Button += btn_stat.Y == 0 ? NS_BUTTON_Y : 0x0000; // minus?
+    ns_report.Button += btn_stat.B == 0 ? NS_BUTTON_B : 0x0000; // plus?
+    ns_report.Button += btn_stat.A == 0 ? NS_BUTTON_A : 0x0000; // lclick?
+    ns_report.Button += btn_stat.X == 0 ? NS_BUTTON_X : 0x0000; // rclick?
+    ns_report.Button += btn_stat.L == 0 ? NS_BUTTON_L : 0x0000; // home?
+    ns_report.Button += btn_stat.R == 0 ? NS_BUTTON_R : 0x0000; // capture?
+    ns_report.Button += btn_stat.ZL == 0 ? NS_BUTTON_ZL : 0x0000; // none?
+    ns_report.Button += btn_stat.ZR == 0 ? NS_BUTTON_ZR : 0x0000; // none?
+    ns_report.Button += btn_stat.MINUS == 0 ? NS_BUTTON_MINUS : 0x0000; // why hat btn?
+    ns_report.Button += btn_stat.PLUS == 0 ? NS_BUTTON_PLUS : 0x0000; // why hat btn?
+    ns_report.Button += btn_stat.LCLICK == 0 ? NS_BUTTON_LCLICK : 0x0000; // why hat btn?
+    ns_report.Button += btn_stat.RCLICK == 0 ? NS_BUTTON_RCLICK : 0x0000; // why hat btn?
+    ns_report.Button += btn_stat.HOME == 0 ? NS_BUTTON_HOME : 0x0000; // why hat btn?
+    ns_report.Button += btn_stat.CAPTUR == 0 ? NS_BUTTON_CAPTURE : 0x0000; // why hat btn?
 
-	tud_hid_report(report_id, &report, sizeof(report));
     tud_hid_report(report_id, &ns_report, sizeof(ns_report));
+	tud_hid_report(report_id, &report, sizeof(report));
+    
 
 	memset(&btn_stat, 0, sizeof(Button_Status));
     memset(&hat_stat, 0, sizeof(Hat_Status));
@@ -83,6 +96,14 @@ static void update_input() {
     btn_stat.X = gpio_get(GPIO_4);
     btn_stat.L = gpio_get(GPIO_5);
     btn_stat.R = gpio_get(GPIO_6);
+    btn_stat.ZL = gpio_get(GPIO_7);
+    btn_stat.ZR = gpio_get(GPIO_8);
+    btn_stat.MINUS = gpio_get(GPIO_9);
+    btn_stat.PLUS = gpio_get(GPIO_10);
+    btn_stat.LCLICK = gpio_get(GPIO_11);
+    btn_stat.RCLICK = gpio_get(GPIO_12);
+    btn_stat.HOME = gpio_get(GPIO_13);
+    btn_stat.CAPTUR = gpio_get(GPIO_14);
 
     send_hid_report(REPORT_ID_GAMEPAD, btn);
 
