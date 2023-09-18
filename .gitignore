@@ -61,3 +61,5 @@ out/
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/kicad,visualstudiocode
+
+build/

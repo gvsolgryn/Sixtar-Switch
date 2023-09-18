@@ -12,7 +12,7 @@ pico_sdk_init()
 add_executable(Sixtar_Controller)
 
 target_sources(Sixtar_Controller PUBLIC
-    ${CMAKE_CURRENT_LIST_DIR}/main.c
+    ${CMAKE_CURRENT_LIST_DIR}/main.cpp
     ${CMAKE_CURRENT_LIST_DIR}/include/usb_descriptors.c
 )
 
