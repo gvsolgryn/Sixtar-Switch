@@ -152,7 +152,6 @@ public:
 
 protected:
     HID_NSGamepadReport_Data_t _report{};
-    uint32_t startMillis{};
 };
 
 NSGamepad::NSGamepad()
