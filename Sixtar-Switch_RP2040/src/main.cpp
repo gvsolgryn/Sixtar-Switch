@@ -6,17 +6,21 @@
 #pragma ide diagnostic ignored "EndlessLoop"
 NSGamepad gamepad;
 
-int setup() {
+void setup() {
     board_init();
     tusb_init();
 
-    for(int i = 0; i < BUTTON_COUNT; i++) {
-        gpio_init(i);
-        gpio_set_dir(i, GPIO_IN);
-        gpio_pull_up(i);
+    for (unsigned char buttonPin : buttonPins) {
+        gpio_init(buttonPin);
+        gpio_set_dir(buttonPin, GPIO_IN);
+        gpio_pull_up(buttonPin);
     }
 
-    return true;
+    for (unsigned char axisPin : axisPins) {
+        gpio_init(axisPin);
+        gpio_set_dir(axisPin, GPIO_IN);
+        gpio_pull_up(axisPin);
+    }
 }
 
 void loop() {
@@ -25,7 +29,7 @@ void loop() {
     update_input();
 }
 
-// Every 1ms, we will send 1 report for each HID profile (keyboard, mouse etc ..)
+// Every 1ms, we will send 1 report for each HID profile (keyboard, mouse etc …)
 // tud_hid_report_complete_cb() is used to send the next report after previous one is complete
 void update_input() {
     const uint32_t interval_ms	= 1;
@@ -36,6 +40,9 @@ void update_input() {
     
     start_ms += interval_ms;
 
+    uint8_t leftXAxisBtn = gpio_get(axisPins[0]);
+    uint8_t rightXAxisBtn = gpio_get(axisPins[1]);
+
     for (int i = 0; i < BUTTON_COUNT; i++) {
         if (gpio_get(buttonPins[i]) != 1) {
             gamepad.press(i);
@@ -43,6 +50,20 @@ void update_input() {
         else {
             gamepad.release(i);
         }
+    }
+
+    if (leftXAxisBtn != 1) {
+        gamepad.leftXAxis(0);
+    }
+    else {
+        gamepad.leftXAxis(128);
+    }
+
+    if (rightXAxisBtn != 1) {
+        gamepad.rightXAxis(255);
+    }
+    else {
+        gamepad.rightXAxis(128);
     }
 
     if (!gamepad.ready())
