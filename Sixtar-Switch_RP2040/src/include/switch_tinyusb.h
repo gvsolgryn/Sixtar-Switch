@@ -45,19 +45,19 @@ typedef uint8_t NSDirection_t;
 
 enum NSButtons {
     NSButton_Y = 0,
-    NSButton_B,
-    NSButton_A,
-    NSButton_X,
-    NSButton_LeftTrigger,
-    NSButton_RightTrigger,
-    NSButton_LeftThrottle,
-    NSButton_RightThrottle,
-    NSButton_Minus,
-    NSButton_Plus,
-    NSButton_LeftStick,
-    NSButton_RightStick,
-    NSButton_Home,
-    NSButton_Capture,
+    NSButton_B, // 1
+    NSButton_A, // 2
+    NSButton_X, // 3
+    NSButton_LeftTrigger, // 4
+    NSButton_RightTrigger, // 5
+    NSButton_LeftThrottle, // 6
+    NSButton_RightThrottle, // 7
+    NSButton_Minus, // 8
+    NSButton_Plus, // 9
+    NSButton_LeftStick, // 10
+    NSButton_RightStick, // 11
+    NSButton_Home, // 12
+    NSButton_Capture, // 13
     NSButton_Reserved1,
     NSButton_Reserved2
 };

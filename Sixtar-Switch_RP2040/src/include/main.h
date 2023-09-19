@@ -17,7 +17,7 @@ void updateDPad();
 
 uint8_t buttonPins[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
 uint8_t axisPins[] = { 14, 15 };
-uint8_t dPadPins[] = { 15, 16, 17, 18 };
+uint8_t dPadPins[] = { 16, 17, 18, 19 };
 
 void updateButtons() {
     for (int i = 0; i < BUTTON_COUNT; i++) {
