@@ -130,7 +130,6 @@ public:
     inline NSGamepad();
 
     inline void end();
-    inline void loop();
     inline void write();
     inline void write(void *report);
     inline void press(uint8_t b);
@@ -149,7 +148,7 @@ public:
     static inline bool ready();
 
     // Sending is public for advanced users.
-    inline bool SendReport(void* data, size_t length);
+    static inline bool SendReport(void* data, size_t length);
 
 protected:
     HID_NSGamepadReport_Data_t _report{};
@@ -158,14 +157,6 @@ protected:
 
 NSGamepad::NSGamepad()
 = default;
-
-void NSGamepad::loop()
-{
-    if (startMillis != board_millis()) {
-        write();
-        startMillis = board_millis();
-    }
-}
 
 void NSGamepad::end()
 {

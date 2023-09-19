@@ -1,12 +1,28 @@
 #include "include/main.h"
 #include "include/switch_tinyusb.h"
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "UnreachableCode"
+#pragma ide diagnostic ignored "EndlessLoop"
 NSGamepad gamepad;
 
-void setup() {
-    init();
+int setup() {
     board_init();
     tusb_init();
+
+    for(int i = 0; i < BUTTON_COUNT; i++) {
+        gpio_init(i);
+        gpio_set_dir(i, GPIO_IN);
+        gpio_pull_up(i);
+    }
+
+    return true;
+}
+
+void loop() {
+    tud_task(); // tinyusb device task
+
+    update_input();
 }
 
 // Every 1ms, we will send 1 report for each HID profile (keyboard, mouse etc ..)
@@ -15,47 +31,25 @@ void update_input() {
     const uint32_t interval_ms	= 1;
     static uint32_t start_ms 	= 0;
 
-    if (!gamepad.ready())
-        board_led_off();
-    else
-        board_led_on();
-
     if (board_millis() - start_ms < interval_ms)
         return;
     
     start_ms += interval_ms;
 
-    uint32_t const btn = board_button_read();
-
-    if (btn) {
-        gamepad.press(NSButton_A);
+    for (int i = 0; i < BUTTON_COUNT; i++) {
+        if (gpio_get(buttonPins[i]) != 1) {
+            gamepad.press(i);
+        }
+        else {
+            gamepad.release(i);
+        }
     }
+
+    if (!gamepad.ready())
+        board_led_off();
     else {
-        gamepad.releaseAll();
-    }
-
-    gamepad.write();
-}
-
-void init() {
-    for(int i = 0; i < BUTTON_COUNT; i++) {
-        gpio_init(i);
-        gpio_set_dir(i, GPIO_IN);
-        gpio_pull_up(i);
-    }
-}
-
-/*------------- MAIN -------------*/
-int main()
-{
-    init();
-    board_init();
-    tusb_init();
-
-    while (true) {
-        tud_task(); // tinyusb device task
-
-        update_input();
+        board_led_on();
+        gamepad.write();
     }
 }
 
@@ -77,3 +71,13 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
 
     }
 }
+
+/*------------- MAIN -------------*/
+int main() {
+    setup();
+    while (true) {
+        loop();
+    }
+    return 0;
+}
+#pragma clang diagnostic pop
