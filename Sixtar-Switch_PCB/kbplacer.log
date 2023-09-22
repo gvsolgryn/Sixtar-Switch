@@ -1,0 +1,4 @@
+[kbplacer_plugin_action.py:78]: Plugin executed with KiCad version: 7.0.7
+[kbplacer_plugin_action.py:79]: Plugin executed with python version: '3.9.16 (main, Aug  8 2023, 05:38:28) [MSC v.1936 64 bit (AMD64)]'
+[kbplacer_dialog.py:392]: Language: en
+[kbplacer_plugin_action.py:120]: GUI state: {"switch_section": {"annotation": "SW{}", "layout_path": "C:\\Users\\tkdeh\\Downloads\\sixtar_switch_keyboard.json", "x_distance": "19.05", "y_distance": "19.05"}, "switch_diodes_section": {"enable": false, "element_info": {"annotation_format": "D{}", "position_option": "Default", "position": {"relative_position": [5.08, 3.03], "orientation": 90.0, "side": "BACK"}}}, "additional_elements": {"elements_info": []}, "misc_section": {"route_tracks": true, "template_path": ""}}
