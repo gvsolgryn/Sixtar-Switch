@@ -2412,7 +2412,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 114.3 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 05c63c9b-195d-434e-87d7-bd75f992aa3b)
-    (property "Reference" "BT_ZR(GPIO7)1" (at 198.12 107.95 0)
+    (property "Reference" "SW20" (at 198.12 107.95 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 116.84 0)
@@ -2429,7 +2429,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_ZR(GPIO7)1") (unit 1)
+          (reference "SW20") (unit 1)
         )
       )
     )
@@ -2516,7 +2516,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 241.3 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 096758fd-db68-4259-898d-162e1adf6849)
-    (property "Reference" "DPad_Down(GPIO17)1" (at 198.12 234.95 0)
+    (property "Reference" "SW13" (at 198.12 234.95 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 243.84 0)
@@ -2533,7 +2533,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "DPad_Down(GPIO17)1") (unit 1)
+          (reference "SW13") (unit 1)
         )
       )
     )
@@ -2722,7 +2722,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 152.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1f8471fa-7a48-4d2f-8dc0-4141742914d5)
-    (property "Reference" "BT_LS(GPIO10)1" (at 198.12 146.05 0)
+    (property "Reference" "SW6" (at 198.12 146.05 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 154.94 0)
@@ -2739,7 +2739,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_LS(GPIO10)1") (unit 1)
+          (reference "SW6") (unit 1)
         )
       )
     )
@@ -2905,7 +2905,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 177.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 346ba524-dbd5-4949-947b-b6063a9bcd4e)
-    (property "Reference" "BT_Home(GPIO12)1" (at 198.12 171.45 0)
+    (property "Reference" "SW18" (at 198.12 171.45 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 180.34 0)
@@ -2922,7 +2922,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_Home(GPIO12)1") (unit 1)
+          (reference "SW18") (unit 1)
         )
       )
     )
@@ -2931,7 +2931,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 388277d3-e853-49f6-8c87-aa37109cd799)
-    (property "Reference" "BT_RS(GPIO11)1" (at 198.12 158.75 0)
+    (property "Reference" "SW11" (at 198.12 158.75 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 167.64 0)
@@ -2948,7 +2948,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_RS(GPIO11)1") (unit 1)
+          (reference "SW11") (unit 1)
         )
       )
     )
@@ -3035,7 +3035,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 88.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 47110d3f-cafc-4370-88d6-85e3ca990176)
-    (property "Reference" "BT_R(GPIO5)1" (at 198.12 82.55 0)
+    (property "Reference" "SW9" (at 198.12 82.55 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 91.44 0)
@@ -3052,7 +3052,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_R(GPIO5)1") (unit 1)
+          (reference "SW9") (unit 1)
         )
       )
     )
@@ -3214,7 +3214,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 25.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 511a2502-6c40-44b2-82dd-fb9e0cf96e37)
-    (property "Reference" "BT_Y(GPIO0)1" (at 190.5 19.05 0)
+    (property "Reference" "SW10" (at 195.58 19.05 0)
       (effects (font (size 1.524 1.524)) (justify left))
     )
     (property "Value" "KEYSW" (at 198.12 27.94 0)
@@ -3231,7 +3231,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_Y(GPIO0)1") (unit 1)
+          (reference "SW10") (unit 1)
         )
       )
     )
@@ -3265,7 +3265,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 203.2 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 57bce016-0740-49c7-aacf-edc237d4a2a8)
-    (property "Reference" "BT_LXAxis(GPIO14)1" (at 198.12 196.85 0)
+    (property "Reference" "SW1" (at 198.12 196.85 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 205.74 0)
@@ -3282,7 +3282,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_LXAxis(GPIO14)1") (unit 1)
+          (reference "SW1") (unit 1)
         )
       )
     )
@@ -3574,7 +3574,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 190.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7dafe1a3-f253-4a99-81e4-c7b4acb8b6fe)
-    (property "Reference" "BT_Capture(GPIO13)1" (at 198.12 184.15 0)
+    (property "Reference" "SW17" (at 198.12 184.15 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 193.04 0)
@@ -3591,7 +3591,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_Capture(GPIO13)1") (unit 1)
+          (reference "SW17") (unit 1)
         )
       )
     )
@@ -3650,7 +3650,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8233700d-b2f8-494c-8ab6-24e25d9cd196)
-    (property "Reference" "BT_ZL(GPIO6)1" (at 198.12 95.25 0)
+    (property "Reference" "SW19" (at 198.12 95.25 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 104.14 0)
@@ -3667,7 +3667,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_ZL(GPIO6)1") (unit 1)
+          (reference "SW19") (unit 1)
         )
       )
     )
@@ -3702,7 +3702,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 88263dfa-1665-4a9e-889c-26e42b588859)
-    (property "Reference" "BT_B(GPIO1)1" (at 198.12 31.75 0)
+    (property "Reference" "SW16" (at 198.12 31.75 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 40.64 0)
@@ -3719,7 +3719,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_B(GPIO1)1") (unit 1)
+          (reference "SW16") (unit 1)
         )
       )
     )
@@ -3863,7 +3863,7 @@
   (symbol (lib_id "Switch:SW_Push") (at 62.23 74.93 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9996d581-2ffb-4c28-8c09-968024a35e7c)
-    (property "Reference" "SW1" (at 62.23 67.31 0)
+    (property "Reference" "BOOT_SW1" (at 62.23 67.31 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "USB_Boot" (at 62.23 69.85 0)
@@ -3880,7 +3880,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "SW1") (unit 1)
+          (reference "BOOT_SW1") (unit 1)
         )
       )
     )
@@ -3889,7 +3889,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 254 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9c5788fa-7894-408a-b365-404de357cbe9)
-    (property "Reference" "DPad_Left(GPIO18)1" (at 198.12 247.65 0)
+    (property "Reference" "SW5" (at 198.12 247.65 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 256.54 0)
@@ -3906,7 +3906,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "DPad_Left(GPIO18)1") (unit 1)
+          (reference "SW5") (unit 1)
         )
       )
     )
@@ -4015,7 +4015,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 76.2 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a7d0ada2-d0b0-4e45-a651-07e854eb3afb)
-    (property "Reference" "BT_L(GPIO4)1" (at 198.12 69.85 0)
+    (property "Reference" "SW8" (at 198.12 69.85 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 78.74 0)
@@ -4032,7 +4032,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_L(GPIO4)1") (unit 1)
+          (reference "SW8") (unit 1)
         )
       )
     )
@@ -4222,7 +4222,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b89e6292-9560-4924-b98d-37b7d82d93a8)
-    (property "Reference" "BT_A(GPIO2)1" (at 198.12 44.45 0)
+    (property "Reference" "SW12" (at 198.12 44.45 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 53.34 0)
@@ -4239,7 +4239,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_A(GPIO2)1") (unit 1)
+          (reference "SW12") (unit 1)
         )
       )
     )
@@ -4351,7 +4351,7 @@
   (symbol (lib_id "Switch:SW_Push") (at 45.72 130.81 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c204bd6e-54e9-43fb-89e5-dda29b2b3790)
-    (property "Reference" "SW2" (at 45.72 123.19 0)
+    (property "Reference" "RESET_SW1" (at 45.72 123.19 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "RUN" (at 45.72 125.73 0)
@@ -4368,7 +4368,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "SW2") (unit 1)
+          (reference "RESET_SW1") (unit 1)
         )
       )
     )
@@ -4377,7 +4377,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 127 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c4f6a0da-060b-4496-a22b-23deacae9f46)
-    (property "Reference" "BT_-(GPIO8)1" (at 198.12 120.65 0)
+    (property "Reference" "SW14" (at 198.12 120.65 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 129.54 0)
@@ -4394,7 +4394,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_-(GPIO8)1") (unit 1)
+          (reference "SW14") (unit 1)
         )
       )
     )
@@ -4403,7 +4403,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 215.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c6eb1687-3aeb-41ee-8168-e98a26b7f569)
-    (property "Reference" "BT_RXAxis(GPIO15)1" (at 198.12 209.55 0)
+    (property "Reference" "SW4" (at 198.12 209.55 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 218.44 0)
@@ -4420,7 +4420,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_RXAxis(GPIO15)1") (unit 1)
+          (reference "SW4") (unit 1)
         )
       )
     )
@@ -4582,7 +4582,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 139.7 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d9519ed7-1466-45a8-8343-836b844be985)
-    (property "Reference" "BT_+(GPIO9)1" (at 198.12 133.35 0)
+    (property "Reference" "SW15" (at 198.12 133.35 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 142.24 0)
@@ -4599,7 +4599,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_+(GPIO9)1") (unit 1)
+          (reference "SW15") (unit 1)
         )
       )
     )
@@ -4711,7 +4711,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 266.7 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e3556a69-0a17-4e8b-af5e-235ea1547fa9)
-    (property "Reference" "DPad_Right(GPIO19)1" (at 198.12 260.35 0)
+    (property "Reference" "SW7" (at 198.12 260.35 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 269.24 0)
@@ -4728,7 +4728,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "DPad_Right(GPIO19)1") (unit 1)
+          (reference "SW7") (unit 1)
         )
       )
     )
@@ -4763,7 +4763,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 63.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e3ba7d48-efd8-4122-b304-d99712f2f03d)
-    (property "Reference" "BT_X(GPIO3)1" (at 198.12 57.15 0)
+    (property "Reference" "SW3" (at 198.12 57.15 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 66.04 0)
@@ -4780,7 +4780,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "BT_X(GPIO3)1") (unit 1)
+          (reference "SW3") (unit 1)
         )
       )
     )
@@ -4914,7 +4914,7 @@
   (symbol (lib_id "keyboard_parts:KEYSW") (at 198.12 228.6 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f0830876-cb72-4048-b326-56c1646b5310)
-    (property "Reference" "DPad_Up(GPIO16)1" (at 198.12 222.25 0)
+    (property "Reference" "SW2" (at 198.12 222.25 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "KEYSW" (at 198.12 231.14 0)
@@ -4931,7 +4931,7 @@
     (instances
       (project "Sixtar-Switch"
         (path "/c7d20cc9-129e-4a64-9aac-b63eeee7ae8b"
-          (reference "DPad_Up(GPIO16)1") (unit 1)
+          (reference "SW2") (unit 1)
         )
       )
     )
