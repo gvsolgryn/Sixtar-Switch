@@ -1,8 +1,7 @@
 ﻿# Sixtar-Switch
 식스타 게이트 닌텐도 스위치 버전용 컨트롤러
 # 지원기기
-Nintendo Switch
-Steam 을 지원하는 OS (Windows 10 및 11 에서 rp2040 펌웨어 테스트 완료)
+Nintendo Switch 및 Steam 을 지원하는 OS (Windows 10 및 11 에서 rp2040 펌웨어 테스트 완료)
 # 디자인
 키보드 형식을 기반으로 제작하였습니다 GAMO2 K28 을 보고 감명받아 제작을 시작하였습니다.
 프로토타입으로만 제작해서 테스트 할 예정입니다.
